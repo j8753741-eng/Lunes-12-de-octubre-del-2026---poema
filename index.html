@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100b18">
+<meta name="description" content="Un poema de amor gatuno para Valeria, escrito desde el primer latido de la mañana.">
+<title>Donde mi piel recuerda tus besos</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --night: #100b18;
+  --purple: #26152f;
+  --gold: #efd49a;
+  --gold-light: #fff0c9;
+  --pink: #eaa6c8;
+  --text: #f8edf4;
+  --muted: #c7b5c9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 28px 14px 40px;
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  background:
+    radial-gradient(ellipse at 50% 0%, #493052 0%, transparent 43%),
+    radial-gradient(ellipse at 0% 65%, #26112e 0%, transparent 42%),
+    linear-gradient(160deg, #100b18, #170e20 52%, #09080f);
+  overflow-x: hidden;
+}
+
+/* Brillos suaves del cielo */
+.sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  color: #f5dba8;
+  opacity: .65;
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+.star:nth-child(1) { top: 9%; left: 8%; font-size: 13px; }
+.star:nth-child(2) { top: 20%; right: 9%; font-size: 19px; animation-delay: 1s; }
+.star:nth-child(3) { top: 48%; left: 4%; font-size: 11px; animation-delay: 1.5s; }
+.star:nth-child(4) { top: 70%; right: 6%; font-size: 16px; animation-delay: .5s; }
+.star:nth-child(5) { top: 88%; left: 12%; font-size: 15px; animation-delay: 2s; }
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.8); }
+  to { opacity: .9; transform: scale(1.2); }
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Cabecera lunar */
+.moon-header {
+  text-align: center;
+  padding: 15px 10px 24px;
+}
+
+.moon {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 17px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 49px;
+  background: radial-gradient(circle, #f8e8bd 0%, #d5a96a 48%, #805a68 76%, transparent 78%);
+  box-shadow: 0 0 24px #e9c58c30, 0 0 65px #cf9ac51c;
+  animation: moonGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+  from { box-shadow: 0 0 20px #e9c58c25, 0 0 40px #cf9ac51a; }
+  to { box-shadow: 0 0 30px #e9c58c55, 0 0 75px #cf9ac530; }
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.moon-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(30px, 7vw, 49px);
+  line-height: 1.08;
+  color: var(--gold-light);
+  margin: 0 auto;
+  text-wrap: balance;
+  text-shadow: 0 0 22px #e7c58b20;
+}
+
+.header-subtitle {
+  margin: 14px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1.3px;
+}
+
+/* Marco inspirado en un collar gatuno */
+.poem-shell {
+  position: relative;
+  padding: 1px;
+  border-radius: 26px;
+  background: linear-gradient(140deg,
+    #f2d9a7 0%, #76517d 22%, #302038 48%,
+    #d9ad75 75%, #563650 100%);
+  box-shadow: 0 22px 65px #00000055, 0 0 35px #d8a9c10b;
+}
+
+.poem-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  padding: 27px 22px 30px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, #48304a66, transparent 52%),
+    linear-gradient(155deg, #19101f, #100c17 68%, #1b1020);
+}
+
+/* Ondas como reflejos sobre agua */
+.water {
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  height: 90px;
+  pointer-events: none;
+  opacity: .13;
+  background: repeating-linear-gradient(
+    176deg,
+    transparent 0 10px,
+    #e6c9f0 11px,
+    transparent 12px 21px
+  );
+  filter: blur(2px);
+  transform: rotate(-3deg);
+  animation: waterFlow 9s ease-in-out infinite alternate;
+}
+
+.water.top { top: 10%; }
+.water.bottom { bottom: 8%; animation-delay: -4s; }
+
+@keyframes waterFlow {
+  from { transform: translateX(-12px) rotate(-3deg); }
+  to { transform: translateX(15px) rotate(2deg); }
+}
+
+.cat-divider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  color: var(--gold);
+  margin: 3px auto 23px;
+  font-size: 17px;
+}
+
+.cat-divider::before,
+.cat-divider::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d8b77c);
+}
+
+.cat-divider::after {
+  transform: rotate(180deg);
+}
+
+.date {
+  position: relative;
+  display: inline-block;
+  color: #e9cda0;
+  border: 1px solid #b9956d66;
+  border-radius: 30px;
+  padding: 9px 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  background: #f3dca308;
+}
+
+.nickname {
+  position: relative;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 5.5vw, 32px);
+  line-height: 1.15;
+  color: #f4c8dd;
+  margin: 0 0 27px;
+  font-weight: 600;
+}
+
+.nickname span {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+}
+
+.verse {
+  position: relative;
+  max-width: 540px;
+  margin: 0 auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 4.6vw, 24px);
+  line-height: 1.55;
+  font-weight: 500;
+  color: #f9eff5;
+}
+
+.stanza {
+  margin: 0 0 23px;
+}
+
+.stanza:last-child {
+  margin-bottom: 0;
+}
+
+.verse .highlight {
+  color: var(--gold-light);
+  text-shadow: 0 0 17px #e7c58b25;
+}
+
+.verse .passion {
+  color: #f2b6d3;
+}
+
+.signature {
+  position: relative;
+  margin: 30px auto 0;
+  padding-top: 23px;
+  max-width: 430px;
+  border-top: 1px solid #b99a7155;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(21px, 5vw, 27px);
+  line-height: 1.35;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.signature small {
+  display: block;
+  margin-top: 14px;
+  color: #d5b8d0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.paw-trail {
+  display: flex;
+  justify-content: center;
+  gap: 19px;
+  align-items: center;
+  margin: 27px 0 2px;
+  color: #d9b783;
+  opacity: .75;
+}
+
+.paw-trail span:nth-child(odd) {
+  transform: translateY(-5px) rotate(-15deg);
+}
+
+.paw-trail span:nth-child(even) {
+  transform: translateY(5px) rotate(15deg);
+}
+
+.footer {
+  text-align: center;
+  margin: 25px auto 0;
+  color: #b9a6bd;
+  font-size: 10px;
+  line-height: 1.9;
+  letter-spacing: 1.3px;
+}
+
+.footer strong {
+  display: block;
+  margin-top: 5px;
+  color: #e4c48d;
+  font-weight: 500;
+}
+
+@media (min-width: 600px) {
+  body { padding: 45px 24px 55px; }
+  .poem-card { padding: 39px 38px 40px; }
+  .moon-header { padding-bottom: 30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="sky" aria-hidden="true">
+  <span class="star">✧</span>
+  <span class="star">✦</span>
+  <span class="star">·</span>
+  <span class="star">✧</span>
+  <span class="star">✦</span>
+</div>
+
+<main class="page">
+
+  <header class="moon-header">
+    <div class="moon" aria-hidden="true">🐈‍⬛</div>
+    <p class="eyebrow">Un secreto de amor bajo la luna</p>
+    <h1>Donde mi piel recuerda tus besos antes de verte</h1>
+    <p class="header-subtitle">Una caricia escrita antes del amanecer ✦</p>
+  </header>
+
+  <section class="poem-shell" aria-label="Poema de amor">
+    <article class="poem-card">
+
+      <div class="water top" aria-hidden="true"></div>
+      <div class="water bottom" aria-hidden="true"></div>
+
+      <div class="cat-divider" aria-hidden="true">🐾 ✦ 🐾</div>
+
+      <div class="date">
+        LUNES, 12 DE OCTUBRE DE 2026 ☀️🐈❤️‍🔥
+      </div>
+
+      <h2 class="nickname">
+        Mi Irresistible Tentación de Mis Eternidades,
+        <span>💋❤️‍🔥</span>
+      </h2>
+
+      <div class="verse">
+
+        <p class="stanza">
+          Dejé mi corazón despierto antes que el alba,<br>
+          con mis labios soñando con los tuyos<br>
+          y mis brazos deseando perderse en tu cintura.
+        </p>
+
+        <p class="stanza">
+          Si lees esto al despertar o cuando avance tu día,<br>
+          quiero que sientas que mi amor ya te esperaba,<br>
+          <span class="passion">ardiendo por ti con esa pasión que no conoce distancias</span><br>
+          y con unas ganas infinitas de robarte mil besos.
+        </p>
+
+        <p class="stanza">
+          Porque, mi niña hermosa, no existe amanecer<br>
+          en el que mi alma no te elija,<br>
+          ni existe deseo más profundo que tenerte cerquita,<br>
+          mirarte a los ojos y besarte como si el mundo<br>
+          se detuviera para dejarnos amarnos.
+          <span class="highlight">❤️‍🔥💋</span>
+        </p>
+
+        <p class="stanza">
+          <span class="highlight">Buenos días, mi amor precioso.</span><br>
+          Desde temprano, mi corazón ya está entre tus manos,<br>
+          deseando que hoy te sientas tan amada<br>
+          como yo me siento enamorado de ti.
+        </p>
+
+      </div>
+
+      <div class="signature">
+        Tuyo en cada latido, cada deseo<br>
+        y toda mi eternidad.
+        <small>❤️ 🐈‍⬛ 💋</small>
+      </div>
+
+      <div class="paw-trail" aria-hidden="true">
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+      </div>
+
+    </article>
+  </section>
+
+  <footer class="footer">
+    ESCRITO ANTES DE QUE DESPIERTES
+    <strong>Para ti, mi amor. Hoy, mañana y en cada eternidad. ♡</strong>
+  </footer>
+
+</main>
+</body>
+</html>
